@@ -2,8 +2,18 @@ angular.module('app', [
   'ui.router',
   'ui.bootstrap',
   'ngAnimate',
-  'templates'
+  'templates',
+  'pascalprecht.translate'
 ])
+
+.config(['$translateProvider',function($translateProvider){
+    var lang = window.localStorage.lang||(navigator.language || navigator.browserLanguage).toLowerCase();
+    $translateProvider.preferredLanguage(lang);
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/i18n/',
+        suffix: '.json'
+    });
+}])
 
 .run(['$rootScope', '$window', '$state',
   function Execute($rootScope, $window, $state) {

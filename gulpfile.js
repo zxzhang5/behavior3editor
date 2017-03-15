@@ -34,6 +34,8 @@ var vendor_js = [
   'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
   'bower_components/angular-ui-router/release/angular-ui-router.min.js',
   'bower_components/sweetalert/dist/sweetalert.min.js',
+  'bower_components/angular-translate/angular-translate.min.js',
+  'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js'
 ];
 var vendor_css = [
   'bower_components/bootstrap/dist/css/bootstrap.min.css',
@@ -76,7 +78,10 @@ var app_entry = [
   'src/index.html',
   'src/package.json',
   'src/desktop.js',
-]
+];
+var app_i18n = [
+  'src/assets/i18n/**/*',
+];
 
 // TASKS (VENDOR) =============================================================
 gulp.task('_vendor_js', function() {
@@ -177,19 +182,26 @@ gulp.task('_app_entry', function() {
              .pipe(connect.reload())
 });
 
+gulp.task('_app_i18n', function() {
+  return gulp.src(app_i18n)
+             .pipe(gulp.dest('build/i18n'))
+});
+
 gulp.task('_app_dev', [
   '_app_js_dev',
   '_app_less',
   '_app_imgs',
   '_app_html',
-  '_app_entry'
+  '_app_entry',
+  '_app_i18n'
 ]);
 gulp.task('_app_build', [
   '_app_js_build',
   '_app_less',
   '_app_imgs',
   '_app_html',
-  '_app_entry'
+  '_app_entry',
+  '_app_i18n'
 ]);
 
 
@@ -209,6 +221,7 @@ gulp.task('_watch', ['_livereload'], function() {
   gulp.watch(app_less, ['_app_less']);
   gulp.watch(app_html, ['_app_html']);
   gulp.watch(app_entry, ['_app_entry']);
+  gulp.watch(app_i18n, ['_app_i18n']);
 });
 
 

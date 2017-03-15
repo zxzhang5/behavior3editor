@@ -2,7 +2,7 @@ angular.module('app')
 
 .config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/dash/home');
+    $urlRouterProvider.otherwise('/dash/projects');
 
     $stateProvider
       // Dash
