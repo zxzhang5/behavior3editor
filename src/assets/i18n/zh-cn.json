@@ -1,3 +1,26 @@
 {
-    "Projects": "项目"
+    "Home": "主页",
+    "Welcome to":"欢迎使用",
+    "home_desc":"behavior3编辑器是一个开源的可视化工具，用于创建和设计行为树。它为游戏和其他应用程序（如模拟和机器人）提供了一个通用的解决方案模型。behavior3编辑器使用一个开放的、简单的格式来描述行为树，因此你可以很容易地适配自己的库，工具或框架。英文版已经从v0.3停止更新，中文版除翻译外将参考 Tencent behaviac 添加新的功能。",
+    "Contribute": "关注",
+    "Donate": "打赏",
+    "SOFTWARE INFO":"软件信息",
+    "Software version:":"版本：",
+    "Build date:":"最新编译：",
+    "LINKS":"链接",
+    "Site:":"网站：",
+    "Repository:": "代码库：",
+    "Issues:":"提问：",
+    "Documentation:":"文档：",
+    "Projects": "项目",
+    "Settings": "设置",
+    "no_project": "您还没有创建项目。",
+    "Open Project": "打开项目",
+    "New Project": "新项目",
+    "Current project": "当前项目",
+    "Project name": "项目名",
+    "Editor": "编辑器",
+    "Save": "保存",
+    "Rename": "重命名",
+    "Close": "关闭"
 }

@@ -11,7 +11,8 @@
     'dialogService',
     'systemService', 
     'notificationService',
-    'projectModel'
+    'projectModel',
+    'trans'
   ];
 
   function ProjectsController($state,
@@ -19,7 +20,8 @@
                               dialogService, 
                               systemService,
                               notificationService,
-                              projectModel) {
+                              projectModel,
+                              trans) {
 
     // HEAD //
     var vm = this;
@@ -57,7 +59,7 @@
       function doNew() {
         // Get project name
         dialogService
-          .prompt('New project', null, 'input', 'Project name')
+          .prompt(trans('New Project'), null, 'input', trans('Project name'))
           .then(function(name) {
             // If no name provided, abort
             if (!name) {

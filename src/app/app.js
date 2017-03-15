@@ -15,6 +15,16 @@ angular.module('app', [
     });
 }])
 
+.factory('trans', ['$translate', function($translate) {       
+    var trans = function(key) {         
+            if(key){                
+                return $translate.instant(key);
+            }
+            return key;
+        }
+    return trans;
+}])
+
 .run(['$rootScope', '$window', '$state',
   function Execute($rootScope, $window, $state) {
     $rootScope.isDesktop = !!$window.process && !!$window.require;

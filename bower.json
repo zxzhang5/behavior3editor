@@ -1,6 +1,6 @@
 {
   "name": "behavior3editor",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "directory": "src/vendor/",
   "devDependencies": {
     "angular"           : "~1.4",

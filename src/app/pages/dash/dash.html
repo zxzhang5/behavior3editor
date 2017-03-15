@@ -1,13 +1,13 @@
 <div class="sidebar left">
   <div class="header-button" ng-show="dash.project">
-    <a ui-sref="editor"><i class="fa fa-arrow-circle-o-left"></i> Editor</a>
+      <a ui-sref="editor"><i class="fa fa-arrow-circle-o-left"></i> <span translate>Editor</span></a>
   </div>
 
   <div class="content" ng-class="{'no-header':!dash.project}">
     <ul class="dash-menu">
-      <li><a ui-sref-active="active" ui-sref="dash.home">Home</a></li>
-      <li><a ui-sref-active="active" ui-sref="dash.projects">Projects</a></li>
-      <li><a ui-sref-active="active" ui-sref="dash.settings">Settings</a></li>
+        <li><a ui-sref-active="active" ui-sref="dash.home" translate>Home</a></li>
+      <li><a ui-sref-active="active" ui-sref="dash.projects" translate>Projects</a></li>
+      <li><a ui-sref-active="active" ui-sref="dash.settings" translate>Settings</a></li>
     </ul>
   </div>
 </div>
