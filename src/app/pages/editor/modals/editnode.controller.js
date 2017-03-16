@@ -11,7 +11,8 @@
     '$state',
     '$stateParams',
     'dialogService',
-    'notificationService'
+    'notificationService',
+    'trans'
   ];
 
   function EditNodeController($scope,
@@ -19,9 +20,10 @@
                               $state,
                               $stateParams,
                               dialogService,
-                              notificationService) {
+                              notificationService,
+                              trans) {
     var vm = this;
-    vm.action = 'New';
+    vm.action = 'New node';
     vm.node = null;
     vm.blacklist = null;
     vm.original = null;
@@ -37,7 +39,7 @@
         var node = p.nodes.get($stateParams.name);
         vm.node = node.copy();
         vm.original = node;
-        vm.action = 'Update';
+        vm.action = 'Update node';
       } else {
         vm.node = new b3e.Node();
         vm.node.category = 'composite';
@@ -63,20 +65,20 @@
 
       $state.go('editor');
       notificationService
-        .success('Node created', 'Node has been created successfully.');
+        .success(trans('Node created'), trans('Node has been created successfully.'));
     }
 
     function remove() {
       dialogService.
         confirm(
-          'Remove node?', 
-          'Are you sure you want to remove this node?\n\nNote: all blocks using this node will be removed.'
+          trans('Remove node?'), 
+          trans('Are you sure you want to remove this node?\n\nNote: all blocks using this node will be removed.')
         ).then(function() {
           var p = $window.editor.project.get();
           p.nodes.remove(vm.original);
           notificationService.success(
-            'Node removed',
-            'The node has been removed from this project.'
+            trans('Node removed'),
+            trans('The node has been removed from this project.')
           );
           $state.go('editor');
         });
