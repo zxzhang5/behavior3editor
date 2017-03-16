@@ -37,23 +37,23 @@
         .saveSettings(vm.settings)
         .then(function() {
           notificationService.success(
-            'Settings saved',
-            'The editor settings has been updated.'
+            trans('Settings saved'),
+            trans('The editor settings has been updated.')
           );
         });
     }
 
     function resetSettings() {
       dialogService.confirm(
-        'Reset Settings?',
-        'Are you sure you want to reset to the default settings?'
+        trans('Reset Settings?'),
+        trans('Are you sure you want to reset to the default settings?')
       ).then(function() {
         settingsModel
           .resetSettings()
           .then(function() {
             notificationService.success(
-              'Settings reseted',
-              'The editor settings has been updated to default values.'
+              trans('Settings reseted'),
+              trans('The editor settings has been updated to default values.')
             );
             _activate();
           });
