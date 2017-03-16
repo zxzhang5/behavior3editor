@@ -33,8 +33,8 @@
         </td>
         <td ng-hide="item.isOpen">
           <div class="btn-group pull-right" role="group" aria-label="...">
-            <button type="button" class="btn btn-info btn-sm" ng-click="projects.openProject(item.path)"><i class="fa fa-folder-open-o"></i> Open</button>
-            <button type="button" class="btn btn-danger btn-sm" ng-click="projects.removeProject(item.path)"><i class="fa fa-trash-o"></i> Remove</button>
+            <button type="button" class="btn btn-info btn-sm" ng-click="projects.openProject(item.path)"><i class="fa fa-folder-open-o"></i> <span translate>Open</span></button>
+            <button type="button" class="btn btn-danger btn-sm" ng-click="projects.removeProject(item.path)"><i class="fa fa-trash-o"></i> <span translate>Remove</span></button>
           </div>
           <p>{{item.name}}</p>
         </td>

@@ -21,7 +21,7 @@ angular.module('app', [
                 return $translate.instant(key);
             }
             return key;
-        }
+        };
     return trans;
 }])
 
