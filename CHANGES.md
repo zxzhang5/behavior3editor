@@ -1,5 +1,11 @@
+## Version 0.4.0 [Mar 16, 2017]
 
-## Version 0.3.0 [NEXT]
+- add: 加入angular-translate
+- add: 新增 assets/i18n/zh-cn.json, 页面翻译为中文
+- add: 设置项新增语言选项, 可切换中英文
+- rem: 去掉 MemSequence 和 MemPriority 两种节点
+
+## Version 0.3.0 [Fork]
 
 - mod: services splitted into models and services.
 - mod: new building system and dependence organization.
