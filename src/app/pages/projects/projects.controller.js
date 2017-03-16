@@ -64,8 +64,8 @@
             // If no name provided, abort
             if (!name) {
               notificationService.error(
-                'Invalid name',
-                'You must provide a name for the project.'
+                trans('Invalid name'),
+                trans('You must provide a name for the project.')
               );
               return;
             }
@@ -89,8 +89,8 @@
       if ($window.editor.isDirty()) {
         dialogService
           .confirm(
-            'Leave without saving?', 
-            'If you proceed you will lose all unsaved modifications.', 
+            trans('Leave without saving?'), 
+            trans('If you proceed you will lose all unsaved modifications.'), 
             null, {closeOnConfirm: false})
           .then(doNew);
       } else {
@@ -105,8 +105,8 @@
           $state.go('editor');
         }, function() {
           notificationService.error(
-            'Invalid file',
-            'Couldn\'t open the project file.'
+            trans('Invalid file'),
+            trans('Couldn not open the project file.')
           );
         });
     }
@@ -126,8 +126,8 @@
       if ($window.editor.isDirty()) {
         dialogService
           .confirm(
-            'Leave without saving?', 
-            'If you proceed you will lose all unsaved modifications.')
+            trans('Leave without saving?'), 
+            trans('If you proceed you will lose all unsaved modifications.'))
           .then(doOpen);
       } else {
         doOpen();
@@ -138,13 +138,13 @@
       var project = projectModel.getProject();
 
       dialogService
-        .prompt('Rename project', null, 'input', project.name)
+        .prompt(trans('Rename project'), null, 'input', project.name)
         .then(function(name) {
           // If no name provided, abort
           if (!name) {
             notificationService.error(
-              'Invalid name',
-              'You must provide a name for the project.'
+              trans('Invalid name'),
+              trans('You must provide a name for the project.')
             );
             return;
           }
@@ -155,8 +155,8 @@
             .then(function() {
               _activate();
               notificationService.success(
-                'Project renamed',
-                'The project has been renamed successfully.'
+                trans('Project renamed'),
+                trans('The project has been renamed successfully.')
               );
             });
         });
@@ -167,13 +167,13 @@
         .saveProject()
         .then(function() {
           notificationService.success(
-            'Project saved',
-            'The project has been saved'
+            trans('Project saved'),
+            trans('The project has been saved.')
           );
         }, function() {
           notificationService.error(
-            'Error',
-            'Project couldn\'t be saved'
+            trans('Error'),
+            trans('Project could not be saved.')
           );
         });
     }
@@ -186,8 +186,8 @@
       if ($window.editor.isDirty()) {
         dialogService
           .confirm(
-            'Leave without saving?', 
-            'If you proceed you will lose all unsaved modifications.', 
+            trans('Leave without saving?'), 
+            trans('If you proceed you will lose all unsaved modifications.'), 
             null)
           .then(doClose);
       } else {
@@ -198,16 +198,16 @@
     function removeProject(path) {
       dialogService.
         confirm(
-          'Remove project?', 
-          'Are you sure you want to remove this project?'
+          trans('Remove project?'), 
+          trans('Are you sure you want to remove this project?')
         ).then(function() {
           projectModel
             .removeProject(path)
             .then(function() {
               _activate();
               notificationService.success(
-                'Project removed',
-                'The project has been removed from editor.'
+                trans('Project removed'),
+                trans('The project has been removed from editor.')
               );
             });
         });
