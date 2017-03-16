@@ -13,7 +13,7 @@ function storageService($q, localStorageService, fileStorageService) {
     load        : load,
     loadAsync   : loadAsync,
     remove      : remove,
-    removeAsync : removeAsync,
+    removeAsync : removeAsync
   };
   return service;
 

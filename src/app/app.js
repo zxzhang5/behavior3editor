@@ -7,7 +7,7 @@ angular.module('app', [
 ])
 
 .config(['$translateProvider',function($translateProvider){
-    var lang = window.localStorage.lang||(navigator.language || navigator.browserLanguage).toLowerCase();
+    var lang = (navigator.language || navigator.browserLanguage).toLowerCase();
     $translateProvider.preferredLanguage(lang);
     $translateProvider.useStaticFilesLoader({
         prefix: '/i18n/',
@@ -35,12 +35,13 @@ angular.module('app', [
   }
 ])
 
-.run(['$window', '$animate', '$location', '$document', '$timeout', 'settingsModel', 'projectModel',
+.run(['$window', '$animate', '$location', '$document', '$timeout', '$translate', 'settingsModel', 'projectModel',
   function Execute($window,
                    $animate,
                    $location,
                    $document,
                    $timeout,
+                   $translate,
                    settingsModel, 
                    projectModel) {
 
@@ -53,7 +54,9 @@ angular.module('app', [
       .attr('b3-drop-node', true);
 
     // initialize editor
-    settingsModel.getSettings();
+    settingsModel.getSettings().then(function(settings) { 
+        $translate.use(settings.lang);
+    });
     projectModel
       .getRecentProjects()
       .then(function(projects) {

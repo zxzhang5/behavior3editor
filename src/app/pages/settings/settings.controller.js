@@ -9,13 +9,15 @@
     'notificationService',
     'settingsModel',
     'dialogService',
-    'trans'
+    'trans',
+    '$translate'
   ];
 
   function SettingsController(notificationService,
                               settingsModel,
                               dialogService,
-                              trans) {
+                              trans,
+                              $translate) {
 
     // HEADER //
     var vm = this;
@@ -35,9 +37,10 @@
     }
 
     function saveSettings() {
+      $translate.use(vm.settings.lang);
       settingsModel
         .saveSettings(vm.settings)
-        .then(function() {
+        .then(function() {          
           notificationService.success(
             trans('Settings saved'),
             trans('The editor settings has been updated.')

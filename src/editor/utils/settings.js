@@ -16,6 +16,7 @@
     zoom_step    : 0.25,
     
     // EDITOR
+    lang          : (navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'?'zh-cn':'en',
     snap_x        : 12,
     snap_y        : 12,
     snap_offset_x : 0,
