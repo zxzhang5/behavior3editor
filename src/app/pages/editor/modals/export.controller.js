@@ -12,7 +12,8 @@
     '$stateParams',
     'dialogService',
     'notificationService',
-    'storageService'
+    'storageService',
+    'trans'
   ];
 
   function ExportController($scope,
@@ -21,7 +22,8 @@
                             $stateParams,
                             dialogService,
                             notificationService,
-                            storageService) {
+                            storageService,
+                            trans) {
     var vm = this;
     vm.type        = null;
     vm.format      = null;
@@ -77,8 +79,8 @@
             .saveAsync(path, vm.pretty)
             .then(function() {
               notificationService.success(
-                'File saved',
-                'The file has been saved successfully.'
+                trans('File saved'),
+                trans('The file has been saved successfully.')
               );
             });
         });

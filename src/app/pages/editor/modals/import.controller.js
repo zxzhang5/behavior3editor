@@ -12,7 +12,8 @@
     '$stateParams',
     'dialogService',
     'notificationService',
-    'storageService'
+    'storageService',
+    'trans'
   ];
 
   function ImportController($scope,
@@ -21,7 +22,8 @@
                             $stateParams,
                             dialogService,
                             notificationService,
-                            storageService) {
+                            storageService,
+                            trans) {
     var vm = this;
     vm.type         = null;
     vm.format       = null;
@@ -64,8 +66,8 @@
         }
       } catch(e) {
         notificationService.error(
-          'Invalid data',
-          'The provided data is invalid.'
+          trans('Invalid data'),
+          trans('The provided data is invalid.')
         );
       }
 
