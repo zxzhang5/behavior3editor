@@ -17,11 +17,11 @@
          style="display:none"
          onmouseover="this.style.display='inline-block';"
          onmouseout="this.style.display='none'"
-         ng-click="nodespanel.newTree();">New</a>
+         ng-click="nodespanel.newTree();" translate>New</a>
 
       <a onmouseover="this.parentElement.firstElementChild.style.display='inline-block';"
          onmouseout="this.parentElement.firstElementChild.style.display='none';">
-         Trees
+          <span translate>Trees</span>
       </a>
     </div>
 
@@ -34,7 +34,7 @@
                style="display:none"
                onmouseover="this.style.display='inline-block';"
                onmouseout="this.style.display='none'"
-               ng-click="nodespanel.remove(tree.id)">Remove</a>
+               ng-click="nodespanel.remove(tree.id)" translate>Remove</a>
 
             <a onmouseover="this.parentElement.firstElementChild.style.display='inline-block';"
                onmouseout="this.parentElement.firstElementChild.style.display='none';"
@@ -54,17 +54,17 @@
          style="display:none"
          onmouseover="this.style.display='inline-block';"
          onmouseout="this.style.display='none'"
-         ui-sref="editor.editnode">New</a>
+         ui-sref="editor.editnode" translate>New</a>
 
       <a onmouseover="this.parentElement.firstElementChild.style.display='inline-block';"
          onmouseout="this.parentElement.firstElementChild.style.display='none';">
-         Nodes
+          <span translate>Nodes</span>
       </a>
     </div>
 
     <div class="node-list-content">
       <div ng-repeat="(category, nodes) in nodespanel.nodes" class="node-list-category">
-        <div ng-click="" class="node-list-title">{{category}}s</div>
+          <div ng-click="" class="node-list-title" >{{category+'s'|translate}}</div>
         <ul>
           <li ng-repeat="node in nodes">
             <a class="edit btn btn-link btn-xs" 
@@ -72,7 +72,7 @@
                onmouseover="this.style.display='inline-block';"
                onmouseout="this.style.display='none'"
                ng-hide="{{node.isDefault}}"
-               ui-sref="editor.editnode({name:node.name})">Edit</a>
+               ui-sref="editor.editnode({name:node.name})" translate>Edit</a>
 
             <a class="no-select"
                data-name="{{node.name}}"
@@ -80,12 +80,12 @@
                onmouseout="this.parentElement.firstElementChild.style.display='none';"
                b3-drag-node>
 
-               {{node.title}}
+               {{node.name|translate}}
             </a>
           </li>
         </ul>
         <ul class="empty" ng-hide="nodes.length">
-          <li>empty</li>
+          <li translate>empty</li>
         </ul>
       </div>
       

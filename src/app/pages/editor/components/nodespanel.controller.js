@@ -9,13 +9,15 @@
     '$scope',
     '$window',
     'dialogService',
-    'notificationService'
+    'notificationService',
+    'trans'
   ];
 
   function NodespanelController($scope, 
                                 $window,
                                 dialogService,
-                                notificationService) {
+                                notificationService,
+                                trans) {
     
     // HEAD //
     var vm = this;
@@ -107,14 +109,14 @@
     function remove(id) {
       dialogService.
         confirm(
-          'Remove tree?', 
-          'Are you sure you want to remove this tree?\n\nNote: all blocks using this tree will be removed.'
+          trans('Remove tree?'), 
+          trans('Are you sure you want to remove this tree?\n\nNote: all blocks using this tree will be removed.')
         ).then(function() {
           var p = $window.editor.project.get();
           p.trees.remove(id);
           notificationService.success(
-            'Tree removed',
-            'The tree has been removed from this project.'
+            trans('Tree removed'),
+            trans('The tree has been removed from this project.')
           );
         });
     }
