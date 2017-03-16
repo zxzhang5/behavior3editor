@@ -121,11 +121,11 @@
     "Are you sure you want to remove this tree?\n\nNote: all blocks using this tree will be removed.": "确定要删除该行为树吗？\n\n注意：该树中的所有节点都将被删除。",
     "Tree removed": "删除完毕",
     "The tree has been removed from this project.": "行为树已经从项目中删除。",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
+    "Properties": "属性",
+    "Select a single block to change its properties.": "选中单个节点修改它的属性",
+    "NOTE: The root node represents a tree. Therefore, changes applied to this node will persist on the tree object.": "注意：根节点代表行为树，应用于根节点的更改将保存在行为树对象上。",
+    "Title": "标题",
+    "Description": "描述",
     "": "",
     "": ""
 }
