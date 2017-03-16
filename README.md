@@ -1,6 +1,8 @@
-# BEHAVIOR3EDITOR
+# Behavior3中文版
 
 ![interface preview](preview.png)
+
+
 
 **Behavior3 Editor** is the official visual editor for the **Behavior3** libraries. It can be accessed online or you can download it to have handle local projects.
 
