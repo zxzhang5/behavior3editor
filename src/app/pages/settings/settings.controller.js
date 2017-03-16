@@ -9,11 +9,13 @@
     'notificationService',
     'settingsModel',
     'dialogService',
+    'trans'
   ];
 
   function SettingsController(notificationService,
                               settingsModel,
-                              dialogService) {
+                              dialogService,
+                              trans) {
 
     // HEADER //
     var vm = this;
