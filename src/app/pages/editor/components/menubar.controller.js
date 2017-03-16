@@ -11,7 +11,8 @@
     '$state',
     'dialogService',
     'projectModel',
-    'notificationService'
+    'notificationService',
+    'trans'
   ];
 
   function MenubarController($scope, 
@@ -19,7 +20,8 @@
                              $state,
                              dialogService,
                              projectModel,
-                             notificationService) {
+                             notificationService,
+                             trans) {
     var vm = this;
     vm.onNewTree           = onNewTree;
     vm.onCloseProject      = onCloseProject;
@@ -143,8 +145,8 @@
       if ($window.editor.isDirty()) {
         dialogService
           .confirm(
-            'Leave without saving?', 
-            'If you proceed you will lose all unsaved modifications.', 
+            trans('Leave without saving?'), 
+            trans('If you proceed you will lose all unsaved modifications.'), 
             null)
           .then(doClose);
       } else {
@@ -158,13 +160,13 @@
         .saveProject()
         .then(function() {
           notificationService.success(
-            'Project saved',
-            'The project has been saved'
+            trans('Project saved'),
+            trans('The project has been saved')
           );
         }, function() {
           notificationService.error(
-            'Error',
-            'Project couldn\'t be saved'
+            trans('Error'),
+            trans('Project could not be saved')
           );
         });
       return false;
