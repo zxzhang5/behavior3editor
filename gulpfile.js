@@ -24,10 +24,28 @@ var build_version = project.version;
 var build_date    = (new Date()).toISOString().replace(/T.*/, '');
 
 // FILES ======================================================================
+var vendor_behavior3js = [
+    'src/behavior3js/b3.js', 
+    'src/behavior3js/b3.functions.js', 
+    'src/behavior3js/core/BehaviorTree.js',
+    'src/behavior3js/core/Tick.js',
+    'src/behavior3js/core/Blackboard.js',
+    'src/behavior3js/core/BaseNode.js',
+    'src/behavior3js/core/Action.js',
+    'src/behavior3js/core/Composite.js',
+    'src/behavior3js/core/Condition.js',
+    'src/behavior3js/core/Decorator.js',
+
+    'src/behavior3js/composites/*.js',
+    'src/behavior3js/decorators/*.js',
+    'src/behavior3js/actions/*.js',
+    'src/behavior3js/conditions/*.js'
+  ];
+
 var vendor_js = [
   'src/assets/libs/createjs.min.js',
   'src/assets/libs/creatine-1.0.0.min.js',
-  'src/assets/libs/behavior3js-0.1.0.min.js',
+  'src/behavior3js/behavior3-'+build_version+'.min.js',
   'src/assets/libs/mousetrap.min.js',
   'bower_components/angular/angular.min.js',
   'bower_components/angular-animate/angular-animate.min.js',
@@ -84,6 +102,14 @@ var app_i18n = [
 ];
 
 // TASKS (VENDOR) =============================================================
+
+gulp.task('_vendor_behavior3js', function() {
+  return gulp.src(vendor_behavior3js)  
+             .pipe(uglify())
+             .pipe(concat('behavior3-'+build_version+'.min.js'))
+             .pipe(gulp.dest('src/behavior3js'))
+});
+
 gulp.task('_vendor_js', function() {
   return gulp.src(vendor_js)
              .pipe(uglify())
@@ -103,7 +129,7 @@ gulp.task('_vendor_fonts', function() {
              .pipe(gulp.dest('build/fonts'))
 });
 
-gulp.task('_vendor', ['_vendor_js', '_vendor_css', '_vendor_fonts']);
+gulp.task('_vendor', ['_vendor_behavior3js','_vendor_js', '_vendor_css', '_vendor_fonts']);
 
 
 // TASKS (PRELOAD) ============================================================
@@ -217,6 +243,7 @@ gulp.task('_livereload', function() {
 gulp.task('_watch', ['_livereload'], function() {
   gulp.watch(preload_js, ['_preload_js']);
   gulp.watch(preload_css, ['_preload_css']);
+  gulp.watch(vendor_behavior3js, ['_vendor_behavior3js','_vendor_js']);
   gulp.watch(app_js, ['_app_js_dev']);
   gulp.watch(app_less, ['_app_less']);
   gulp.watch(app_html, ['_app_html']);

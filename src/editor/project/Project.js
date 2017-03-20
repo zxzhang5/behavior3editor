@@ -28,8 +28,6 @@
     this.nodes.add(b3e.Root, true);
     this.nodes.add(b3.Sequence, true);
     this.nodes.add(b3.Priority, true);
-//    this.nodes.add(b3.MemSequence, true);
-//    this.nodes.add(b3.MemPriority, true);
     this.nodes.add(b3.Repeater, true);
     this.nodes.add(b3.RepeatUntilFailure, true);
     this.nodes.add(b3.RepeatUntilSuccess, true);

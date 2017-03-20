@@ -44,32 +44,6 @@
     return shape;
   };
 
-  b3e.draw.memsequenceSymbol = function(block, settings) {
-    var shape = new createjs.Shape();
-
-    var w = block._width;
-    var h = block._height;
-    var swidth = h/20;
-    var ssize = h/4;
-    var scolor = settings.get('block_symbol_color');
-
-    shape.graphics.setStrokeStyle(swidth, 'round');
-    shape.graphics.beginStroke(scolor);
-    shape.graphics.beginFill(scolor);
-    shape.graphics.drawPolyStar(0, -ssize*0.75, ssize/2, 6, ssize/10, 0);
-
-    shape.graphics.setStrokeStyle(swidth, 'round');
-    shape.graphics.beginStroke(scolor);
-    shape.graphics.beginFill(scolor);
-    shape.graphics.moveTo(-ssize, ssize/2);
-    shape.graphics.lineTo(ssize, ssize/2);
-    shape.graphics.drawPolyStar(ssize/2, ssize/2, ssize/2, 3, 0, 0);
-    shape.graphics.endFill();
-    shape.graphics.endStroke();
-
-    return shape;
-  };
-
   b3e.draw.prioritySymbol = function(block, settings) {
     // var shape = block.displayObject;
     // var shape = block._shapeObject;
@@ -92,30 +66,7 @@
     shape.graphics.endStroke();
 
     return shape;
-  };
-
-  b3e.draw.memprioritySymbol = function(block, settings) {
-    var shape = new createjs.Shape();
-
-    var w = block._width;
-    var h = block._height;
-    var swidth = h/20;
-    var ssize = h/8;
-    var scolor = settings.get('block_symbol_color');
-
-    shape.graphics.setStrokeStyle(swidth, 'round');
-    shape.graphics.beginStroke(scolor);
-    shape.graphics.arc(-ssize, -ssize, ssize, 3.141561, 1.570796, false);
-    shape.graphics.lineTo(-ssize, ssize);
-    shape.graphics.beginFill(scolor);
-    shape.graphics.drawCircle(-ssize, ssize*2, swidth/2);
-    shape.graphics.drawPolyStar(ssize*1.5, 0, ssize/2, 6, ssize/10, 0);
-
-    shape.graphics.endFill();
-    shape.graphics.endStroke();
-
-    return shape;
-  };
+  };  
 
   b3e.draw.textSymbol = function(block, settings) {
     var text = new createjs.Text(
@@ -138,9 +89,7 @@
   b3e.draw.SYMBOLS = {
     'Root'        : b3e.draw.rootSymbol,
     'Sequence'    : b3e.draw.sequenceSymbol,
-    'Priority'    : b3e.draw.prioritySymbol,
-    'MemSequence' : b3e.draw.memsequenceSymbol,
-    'MemPriority' : b3e.draw.memprioritySymbol,
+    'Priority'    : b3e.draw.prioritySymbol
   };
 
 }());
