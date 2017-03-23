@@ -39,6 +39,8 @@
         action    : [],
         condition : [],
       };
+      vm.panel_trees_open = true;
+      vm.panel_nodes_open = true;
 
       var p = $window.editor.project.get();
       p.nodes.each(function(node) {

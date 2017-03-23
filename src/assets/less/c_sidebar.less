@@ -28,8 +28,16 @@
     &-thumb { background: @color-blue; }
     &-thumb:window-inactive { background: @color-blue; }
   }
-
-  .title {
+  
+  .panel, .panel-body{
+    background-color: transparent !important;
+    border:0 none !important;    
+  }
+  .panel-body{
+    padding: 0 5px;
+  }
+  .title, .panel-heading{
+    border:0 none;
     color: @color-dark1;
     list-style: none;
     background-color: @color-dark2+#222;
@@ -37,9 +45,16 @@
     padding: 0px @padding-small-2x;
     text-align: left;
     text-transform: capitalize;
-    font-size: 1.2em;
+    line-height: 1.5em;
+    font-size: 1.2em;    
     .font-base;
 
+    .panel-title{
+        line-height: 1.5em;
+        font-size: 1em;
+        border:0 none;
+    }
+    
     .new {
       margin-top: 3px;
       float: right;
@@ -48,6 +63,12 @@
         text-decoration: none;
         background-color: @color-green;
       }
+    }
+    
+    i{
+        font-size: 0.8em;
+        padding-top: 0.4em;
+        vertical-align: middle;
     }
 
     a {

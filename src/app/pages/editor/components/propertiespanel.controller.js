@@ -17,6 +17,7 @@
     vm.block = null;
     vm.update = update;
     vm.keydown = keydown;
+    vm.panel_properties_open = true;
 
     _create();
     _activate();

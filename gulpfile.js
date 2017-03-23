@@ -245,7 +245,7 @@ gulp.task('_watch', ['_livereload'], function() {
   gulp.watch(preload_css, ['_preload_css']);
   gulp.watch(vendor_behavior3js, ['_vendor_behavior3js','_vendor_js']);
   gulp.watch(app_js, ['_app_js_dev']);
-  gulp.watch(app_less, ['_app_less']);
+  gulp.watch('src/assets/less/**/*', ['_app_less']);
   gulp.watch(app_html, ['_app_html']);
   gulp.watch(app_entry, ['_app_entry']);
   gulp.watch(app_i18n, ['_app_i18n']);

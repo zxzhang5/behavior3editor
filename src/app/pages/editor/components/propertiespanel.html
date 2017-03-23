@@ -1,46 +1,51 @@
 <div ng-controller="PropertiespanelController as propertiespanel" class="full-height side-panel">
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="propertiespanel.panel_properties_open">
+            <accordion-heading>
+                <span translate>Properties</span>
+                <i class="pull-right fa fw" ng-class="{'fa-chevron-down': propertiespanel.panel_properties_open, 'fa-chevron-right': !propertiespanel.panel_properties_open}"></i>
+            </accordion-heading>
+            
+            <div ng-hide="propertiespanel.block" class="properties">
+                <p class="text-center" translate>Select a single block to change its properties.</p>
+                <p class="text-center"><em translate>NOTE: The root node represents a tree. Therefore, changes applied to this node will persist on the tree object.</em></p>
+            </div>
 
-  <div class="title" translate>Properties</div>
+            <div ng-show="propertiespanel.block" class="properties">
+                <form>
+                    <div class="form-group">
+                        <label for="title" translate>Title</label>
+                        <input type="text" 
+                               class="form-control"
+                               name="title"
+                               placeholder="{{'Title'|translate}}"
+                               ng-keydown="propertiespanel.keydown($event)"
+                               ng-model="propertiespanel.block.title"
+                               ng-change="propertiespanel.update()">
+                    </div>
 
-  <div ng-hide="propertiespanel.block" class="properties">
-    <p class="text-center" translate>Select a single block to change its properties.</p>
-    <p class="text-center"><em translate>NOTE: The root node represents a tree. Therefore, changes applied to this node will persist on the tree object.</em></p>
-  </div>
-  
-  <div ng-show="propertiespanel.block" class="properties">
-    <form>
-      <div class="form-group">
-        <label for="title" translate>Title</label>
-        <input type="text" 
-               class="form-control"
-               name="title"
-               placeholder="{{'Title'|translate}}"
-               ng-keydown="propertiespanel.keydown($event)"
-               ng-model="propertiespanel.block.title"
-               ng-change="propertiespanel.update()">
-      </div>
+                    <div class="form-group">
+                        <label for="description" translate>Description</label>
+                        <textarea name="description"
+                                  rows="4"
+                                  class="form-control"
+                                  placeholder="{{'Description'|translate}}"
+                                  ng-keydown="propertiespanel.keydown($event)"
+                                  ng-model="propertiespanel.block.description"
+                                  ng-change="propertiespanel.update()">
 
-      <div class="form-group">
-        <label for="description" translate>Description</label>
-        <textarea name="description"
-                  rows="4"
-                  class="form-control"
-                  placeholder="{{'Description'|translate}}"
-                  ng-keydown="propertiespanel.keydown($event)"
-                  ng-model="propertiespanel.block.description"
-                  ng-change="propertiespanel.update()">
+                        </textarea>
+                    </div>
 
-        </textarea>
-      </div>
-
-      <div class="form-group">
-        <b3-key-table heading="{{'Properties'|translate}}"
-                      ng-model="propertiespanel.block.properties"
-                      ng-change="propertiespanel.update()"
-                      class="no-border">
-        </b3-key-table>
-      </div>
-    </form>
-  </div>
-  
+                    <div class="form-group">
+                        <b3-key-table heading="{{'Properties'|translate}}"
+                                      ng-model="propertiespanel.block.properties"
+                                      ng-change="propertiespanel.update()"
+                                      class="no-border">
+                        </b3-key-table>
+                    </div>
+                </form>
+            </div>
+        </accordion-group>
+    </accordion>
 </div>
