@@ -45,6 +45,12 @@ angular.module('app')
         controller: 'EditNodeController',
         controllerAs: 'editnode',
       })
+      .state('editor.edittarget', {
+        url: "/target/:name",
+        templateUrl: 'pages/editor/modals/edittarget.html',
+        controller: 'EditTargetController',
+        controllerAs: 'edittarget',
+      })
       .state('editor.export', {
         url: "/export/:type/:format",
         templateUrl: 'pages/editor/modals/export.html',

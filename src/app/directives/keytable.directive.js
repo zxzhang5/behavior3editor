@@ -11,6 +11,7 @@
     var directive = {
       require          : '^ngModel',
       restrict         : 'EA',
+      scope            : true,
       replace          : true,
       bindToController : true,
       controller       : 'KeyTableController',

@@ -10,10 +10,14 @@
     this._selectedTree = null;
     this._clipboard = null;
     this._nodes = {};
+    this._targets = {};
+    this._blackboards = {};
 
     // Managers
     this.trees = null;
     this.nodes = null;
+    this.targets = null;
+    this.blackboards = null;
     this.history = null;
 
     this._initialize();
@@ -23,6 +27,8 @@
   p._initialize = function() {
     this.trees = new b3e.project.TreeManager(this._editor, this);
     this.nodes = new b3e.project.NodeManager(this._editor, this);
+    this.targets = new b3e.project.TargetManager(this._editor, this);
+    this.blackboards = new b3e.project.BlackboardManager(this._editor, this);
     this.history = new b3e.project.HistoryManager(this._editor, this);
 
     this.nodes.add(b3e.Root, true);

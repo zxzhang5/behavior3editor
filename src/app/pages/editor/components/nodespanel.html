@@ -1,6 +1,6 @@
 <div ng-controller="NodespanelController as nodespanel" class="full-height side-panel">
     <div class="node-list">
-        <accordion close-others="oneAtATime">
+        <accordion  close-others="oneAtATime">
             <accordion-group is-open="nodespanel.panel_trees_open">
                 <accordion-heading>
                     <span translate>Trees</span>
@@ -8,7 +8,6 @@
                 </accordion-heading>          
                 <div class="node-list-content">
                     <div class="node-list-category">
-                        <!-- <div ng-click="" class="node-list-title">trees</div> -->
                         <ul>
                             <li ng-repeat="tree in nodespanel.trees">
                                 <a class="remove btn btn-link btn-xs" 
@@ -29,7 +28,59 @@
                         </ul>
                     </div>
                 </div>          
-            </accordion-group>      
+            </accordion-group>
+            
+            <accordion-group is-open="nodespanel.panel_targets_open">
+                <accordion-heading>
+                    <span translate>Targets</span>
+                    <i class="pull-right fa fw" ng-class="{'fa-chevron-down': nodespanel.panel_targets_open, 'fa-chevron-right': !nodespanel.panel_targets_open}"></i>
+                </accordion-heading>          
+                <div class="node-list-content">
+                    <div class="node-list-category">
+                        <ul>
+                            <li ng-repeat="target in nodespanel.targets">
+                                <a class="remove btn btn-link btn-xs" 
+                                   style="display:none"
+                                   onmouseover="this.style.display = 'inline-block';"
+                                   onmouseout="this.style.display = 'none'"
+                                   ng-click="nodespanel.removeTarget(target.name)" translate>Remove</a>
+
+                                <a onmouseover="this.parentElement.firstElementChild.style.display = 'inline-block';"
+                                   onmouseout="this.parentElement.firstElementChild.style.display = 'none';"
+                                   data-name="{{target.name}}">
+                                    {{target.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>          
+            </accordion-group>
+            
+            <accordion-group is-open="nodespanel.panel_blackboards_open">
+                <accordion-heading>
+                    <span translate>Blackboards</span>
+                    <i class="pull-right fa fw" ng-class="{'fa-chevron-down': nodespanel.panel_blackboards_open, 'fa-chevron-right': !nodespanel.panel_blackboards_open}"></i>
+                </accordion-heading>          
+                <div class="node-list-content">
+                    <div class="node-list-category">                     
+                        <ul>
+                            <li ng-repeat="blackboard in nodespanel.blackboards">
+                                <a class="remove btn btn-link btn-xs" 
+                                   style="display:none"
+                                   onmouseover="this.style.display = 'inline-block';"
+                                   onmouseout="this.style.display = 'none'"
+                                   ng-click="nodespanel.removeBlackboard(blackboard.id)" translate>Remove</a>
+
+                                <a onmouseover="this.parentElement.firstElementChild.style.display = 'inline-block';"
+                                   onmouseout="this.parentElement.firstElementChild.style.display = 'none';"
+                                   data-name="{{blackboard.id}}">
+                                    {{blackboard.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>          
+            </accordion-group>
 
             <accordion-group is-open="nodespanel.panel_nodes_open">
                 <accordion-heading>
@@ -47,13 +98,11 @@
                                    onmouseout="this.style.display = 'none'"
                                    ng-hide="{{node.isDefault}}"
                                    ui-sref="editor.editnode({name:node.name})" translate>Edit</a>
-
                                 <a class="no-select"
                                    data-name="{{node.name}}"
                                    onmouseover="this.parentElement.firstElementChild.style.display = 'inline-block';"
                                    onmouseout="this.parentElement.firstElementChild.style.display = 'none';"
                                    b3-drag-node>
-
                                     {{node.name|translate}}
                                 </a>
                             </li>

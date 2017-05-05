@@ -33,6 +33,8 @@
     // BODY //
     function _activate() {
       vm.trees = [];
+      vm.targets = [];
+      vm.blackboards = [];
       vm.nodes = {
         composite : [],
         decorator : [],
@@ -40,9 +42,12 @@
         condition : [],
       };
       vm.panel_trees_open = true;
+      vm.panel_targets_open = false;
+      vm.panel_blackboards_open = false;
       vm.panel_nodes_open = true;
 
-      var p = $window.editor.project.get();
+      var p = $window.editor.project.get();      
+      
       p.nodes.each(function(node) {
         if (node.category === 'tree') return;
 
@@ -61,9 +66,18 @@
         vm.trees.push({
           'id'       : tree._id,
           'name'     : root.title || 'A behavior tree',
-          'active'   : tree===selected,
+          'active'   : tree===selected
         });
       });
+      
+      p.targets.each(function(target) {          
+        vm.targets.push({
+          name: target.name,
+          title: target.title
+        });
+      });
+      
+      vm.blackboards = p.blackboards;
     }
 
     function _event(e) {

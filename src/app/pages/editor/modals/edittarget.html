@@ -1,0 +1,54 @@
+<div class="b3modal">
+  <div class="b3modal-background" ng-click="go('editor');"></div>
+  <div class="b3modal-window">
+    <form name="targetForm" ng-submit="edittarget.save()" class="full-height">
+      <div class="b3modal-wrap">
+          <h1 class="b3modal-title" translate>{{edittarget.action}}</h1>
+        <div class="b3modal-content">
+          
+            <div class="row">
+              <div class="form-group col-md-4" ng-class="{'has-error':targetForm.name.$invalid && targetForm.name.$dirty}">
+                  <label for="name" class="control-label" translate>Name</label>
+                <input type="text"
+                       class="form-control"
+                       name="name"
+                       ng-model="edittarget.target.name"
+                       tooltip="{{targetForm.name.$error.blacklist?'Node already exists':''|translate}}"
+                       tooltip-placement="bottom"
+                       tooltip-trigger="keyup"
+                       blacklist="{{edittarget.blacklist}}"
+                       required
+                       autofocus>
+                       <!-- tooltip-enable="!inputModel"  -->
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="title" class="control-label" translate>Title</label>
+                <input type="text"
+                       class="form-control"
+                       name="title"
+                       ng-model="edittarget.target.title">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <b3-key-table heading="{{'Properties'|translate}}" ng-model="edittarget.target.properties"></b3-key-table>
+              </div> 
+              <div class="form-group col-md-6">
+                <b3-key-table heading="{{'Methods'|translate}}" ng-model="edittarget.target.methods"></b3-key-table>
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="b3modal-buttons">
+        <input type="button" class="btn btn-danger btn-lg pull-left" ng-click="edittarget.remove()" value="{{'Remove'|translate}}" ng-show="edittarget.original">
+        
+        <input type="button" class="btn btn-default btn-lg" ui-sref="editor" value="{{'Cancel'|translate}}">
+        <button type="submit" class="btn btn-success btn-lg" ng-disabled="targetForm.name.$invalid" translate>Save</button>
+      </div>
+    </form>
+  </div>
+</div>
